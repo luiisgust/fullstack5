@@ -1,0 +1,7 @@
+{
+  "Servidor": "localhost",
+  "Porta": 3306,
+  "Banco": "catalogo_filmes_exemplo",
+  "Usuario": "root",
+  "Senha": ""
+}

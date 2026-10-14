@@ -1,0 +1,15 @@
+<Window x:Class="CatalogoFilmes.Views.AvaliacoesWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="CineCatálogo - Avaliações" Width="1100" Height="760" MinWidth="960" MinHeight="650" WindowStartupLocation="CenterOwner">
+ <Grid Margin="28"><Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition/></Grid.RowDefinitions>
+  <TextBlock Text="Avaliações" FontSize="30" FontWeight="Bold" Margin="0,0,0,22"/>
+  <Grid Grid.Row="1"><Grid.ColumnDefinitions><ColumnDefinition Width="280"/><ColumnDefinition Width="24"/><ColumnDefinition/></Grid.ColumnDefinitions>
+   <Border Background="White" Padding="20" CornerRadius="10"><ScrollViewer VerticalScrollBarVisibility="Auto"><StackPanel><TextBlock x:Name="txtModo" Text="Novo registro" FontSize="18" FontWeight="Bold" Margin="0,0,0,18"/><TextBlock Text="Filme"/><ComboBox x:Name="cbFilme" DisplayMemberPath="Titulo" SelectedValuePath="Id"/><TextBlock Text="Nota (0 a 10)"/><TextBox x:Name="txtNota"/><TextBlock Text="Comentário"/><TextBox x:Name="txtComentario"/>
+    <WrapPanel Margin="0,12,0,0"><Button Content="Salvar" Click="Salvar_Click"/><Button Content="Limpar" Click="Limpar_Click"/><Button Content="Excluir" Click="Excluir_Click" Margin="0,10,0,0"/></WrapPanel>
+   </StackPanel></ScrollViewer></Border>
+   <Grid Grid.Column="2"><Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+    <DockPanel><Button Content="Buscar" Click="Buscar_Click" DockPanel.Dock="Right"/><TextBox x:Name="txtBusca" ToolTip="Digite um termo e clique em Buscar"/></DockPanel>
+    <DataGrid x:Name="dgItens" Grid.Row="1" SelectionChanged="Selecionar"><DataGrid.Columns><DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="55"/><DataGridTextColumn Header="Filme" Binding="{Binding Filme.Titulo}" Width="*"/><DataGridTextColumn Header="Nota" Binding="{Binding Nota}" Width="*"/><DataGridTextColumn Header="Comentário" Binding="{Binding Comentario}" Width="*"/><DataGridTextColumn Header="Data" Binding="{Binding DataAvaliacao}" Width="*"/></DataGrid.Columns></DataGrid>
+    <TextBlock Grid.Row="2" Text="Selecione uma linha para editar. Busca vazia lista todos os registros." Foreground="#6F748A" Margin="0,12,0,0" TextWrapping="Wrap"/>
+   </Grid>
+  </Grid>
+ </Grid>
+</Window>
